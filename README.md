@@ -1,8 +1,6 @@
 # Dragomir-Stanciu Diana-Rafaela
 
-# Proiectarea, realizarea și testarea unei
-# drone biomimetice cu aripi batante
-# și control la distanță
+# Proiectarea, realizarea și testarea unei drone biomimetice cu aripi batante și control la distanță
 
 
 # Fluture RC
@@ -22,10 +20,10 @@ Repository-ul conține codul sursă complet al aplicației, fără fișierele bi
 ## Structura codului
 
 fluture_rc/
-├── platformio.ini      # Configurare PlatformIO (board, framework, biblioteci)
-├── src/
-│   ├── main.cpp        # Firmware ESP32 — cinematica aripilor + comunicație WebSocket
-│   └── index_html.h    # Interfața web (HTML/CSS/JS) stocată în PROGMEM
+-platformio.ini      # Configurare PlatformIO (board, framework, biblioteci)
+-src/
+-main.cpp        # Firmware ESP32 — cinematica aripilor + comunicație WebSocket
+-index_html.h    # Interfața web (HTML/CSS/JS) stocată în PROGMEM
 
 
 Bibliotecile externe utilizate (ESP32Servo, WebSocketsServer) sunt declarate în platformio.ini și se descarcă automat la compilare — nu este necesară includerea lor manuală în repository.

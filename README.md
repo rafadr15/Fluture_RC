@@ -46,6 +46,6 @@ După încărcare, ESP32 pornește automat un access point Wi-Fi cu numele `Flut
 
 ## Repository
 
-Codul sursă este disponibil la adresa: [adresa repository-ului]
+Codul sursă este disponibil la adresa: https://github.com/rafadr15/Fluture_RC
 
 

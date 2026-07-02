@@ -101,30 +101,27 @@ void loop() {
     digitalWrite(ledPin, HIGH);
 
     float period = 1.0 / frequencyHz;
-    // fracțiunea de timp din ciclul actual (de la 0.0 la 1.0)
     float fraction = fmod((micros() - startTime) / 1000000.0, period) / period; 
 
     
     float mappedPhase = 0;
     if (fraction <= downstrokeRatio) {
-      // Suntem în faza de coborâre (0 până la PI)
       mappedPhase = (fraction / downstrokeRatio) * PI;
     } else {
-      // Suntem în faza de urcare (PI până la 2*PI)
       mappedPhase = PI + ((fraction - downstrokeRatio) / (1.0 - downstrokeRatio)) * PI;
     }
 
-    // 2. Selectăm Forma Undei
+ 
     float waveMultiplier = 0;
     if (waveType == 0) {
-      // Undă Sinusoidală. Folosim cos() pentru ca faza 0 să înceapă "Sus" (Max = +1)
+  
       waveMultiplier = cos(mappedPhase); 
     } else {
-      // Undă Triunghiulară agresivă
+
       waveMultiplier = (2.0 / PI) * asin(cos(mappedPhase)); 
     }
 
-    // 3. Calculăm Offsetul Real pentru fiecare aripă
+ 
     float midPointL = (strokeMinL + strokeMaxL) / 2.0;
     float amplitudeSizeL = (strokeMaxL - strokeMinL) / 2.0;
     currentActualOffsetL = midPointL + (amplitudeSizeL * waveMultiplier);
@@ -133,11 +130,10 @@ void loop() {
     float amplitudeSizeR = (strokeMaxR - strokeMinR) / 2.0;
     currentActualOffsetR = midPointR + (amplitudeSizeR * waveMultiplier);
   }
-  // ---------------- OPRIRE LINA (Smooth Glide) ----------------
+ 
   else {
     digitalWrite(ledPin, LOW);
-    
-    // Aducem offset-ul treptat spre 0 în loc să smucim servomotorul
+
     if (currentActualOffsetL > 0) currentActualOffsetL -= 1.0;
     else if (currentActualOffsetL < 0) currentActualOffsetL += 1.0;
     if (abs(currentActualOffsetL) < 1.0) currentActualOffsetL = 0;
@@ -147,7 +143,7 @@ void loop() {
     if (abs(currentActualOffsetR) < 1.0) currentActualOffsetR = 0;
   }
 
-  // 4. Calculul Unghiului Final
+  // Calculul Unghiului Final
   leftFinalAngle = 90 + centerL + currentActualOffsetL;
   rightFinalAngle = 90 - centerR - currentActualOffsetR;
 

@@ -176,9 +176,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     <button class="mode-btn"        id="btnModeJoy" onclick="switchMode('joy')">Joystick</button>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- MOD EXPERIMENTAL (logica neschimbata, doar design imbunatatit) -->
-  <!-- ============================================================ -->
+
   <div id="panelExp" class="mode-panel active">
 
     <div class="card primary-border">

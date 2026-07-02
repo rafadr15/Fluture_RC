@@ -20,8 +20,9 @@ Repository-ul conține codul sursă complet al aplicației, fără fișiere bina
 ## Structura codului
 
 fluture_rc/ 
-- platformio.ini                     # Configurare PlatformIO (board, framework, biblioteci) <br>
-src/ <br>
+- platformio.ini                     # Configurare PlatformIO (board, framework, biblioteci)
+  
+src/ 
 - main.cpp                          #  Software ESP32 — cinematica aripilor + comunicație WebSocket
 - index_html.h                      # Interfața web (HTML/CSS/JS) stocată în PROGMEM
 
